@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
+from reportlab.pdfgen import canvas
+from PIL import Image
 import os
 
 class ImageToPDFConverter:
@@ -40,7 +42,16 @@ class ImageToPDFConverter:
             _, image_path = os.path.split(image_path)
             self.selected_images_listbox.insert(tk.END, image_path)
 
+    def convert_images_to_pdf(self):
+        if not self.image_paths:
+            return
 
+        output_pdf_path = self.output_pdf_name.get() + ".pdf" if self.output_pdf_name.get() else "output.pdf"
+
+        pdf = canvas.Canvas(output_pdf_path, pagesize=(612, 792))
+
+        for image_path in self.image_paths:
+            img = Image.open(image_path)
 
 def main():
     root = tk.Tk()

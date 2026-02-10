@@ -26,7 +26,10 @@ class ImageToPDFConverter:
         pdf_name_entry = tk.Entry(self.root, textvariable=self.output_pdf_name, width=40, justify='center')
         pdf_name_entry.pack()
 
+        convert_button = tk.Button(self.root, text="Convert to PDF", command=self.convert_images_to_pdf)
+        convert_button.pack(pady=(20,40))
 
+    def sel
 
 def main():
     root = tk.Tk()

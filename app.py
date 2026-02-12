@@ -14,7 +14,7 @@ class ImageToPDFConverter:
         self.initialize_ui()
 
     def initialize_ui(self):
-        title_label = tk.Label(self.root, text="Image to PDF Converter", font=("Helvetica", 16, "bold"))
+        title_label = tk.Label(self.root, text="Image to PDF Converter2", font=("Helvetica", 16, "bold"))
         title_label.pack(pady=10)
 
         select_images_button = tk.Button(self.root, text="Select Images", command=self.select_images)
@@ -60,7 +60,7 @@ class ImageToPDFConverter:
             x_centered = (612 - new_width) / 2
             y_centered = (792 - new_height) / 2
 
-            pdf.setFillColor(255, 255, 255)
+            pdf.setFillColorRGB(255, 255, 255)
             pdf.rect(0, 0, 612, 792, fill = True)
             pdf.drawInlineImage(img, x_centered, y_centered, width=new_width, height=new_height)
             pdf.showPage()
